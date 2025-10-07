@@ -1,0 +1,46 @@
+openapi: 3.0.1
+info:
+  title: Messari News API
+  version: "1.0.0"
+  description: Retrieve the latest curated news stories from Messari for crypto assets.
+servers:
+  - url: https://data.messari.io
+paths:
+  /api/v1/news:
+    get:
+      summary: Fetch Messari news articles
+      description: Returns a curated list of recent news stories for crypto assets from Messari.
+      operationId: getMessariNews
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 10
+          description: Number of news articles to return.
+      responses:
+        '200':
+          description: Successful response with an array of news stories.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        title:
+                          type: string
+                        content:
+                          type: string
+                        published_at:
+                          type: string
+                          format: date-time
+                required:
+                  - data
