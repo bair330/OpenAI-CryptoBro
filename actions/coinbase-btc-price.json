@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Coinbase BTC Price Fetcher",
+  "name_for_model": "coinbase_btc_price",
+  "description_for_human": "Fetches the current Bitcoin (BTC) price in USD directly from Coinbase.",
+  "description_for_model": "Use this action to get the latest Bitcoin (BTC) spot price in USD using the Coinbase API. No authentication is required.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://raw.githubusercontent.com/bair330/OpenAI-CryptoBro/main/coincase-openai.yaml"
+  },
+  "logo_url": "https://avatars.githubusercontent.com/u/1885080?s=200&v=4",
+  "contact_email": "you@example.com",
+  "legal_info_url": "https://www.coinbase.com/legal"
+}
