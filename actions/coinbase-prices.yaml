@@ -1,0 +1,32 @@
+openapi: 3.1.0
+info:
+  title: Coinbase BTC Price API
+  description: Fetches the latest Bitcoin (BTC) spot price in USD from Coinbase.
+  version: 1.0.0
+servers:
+  - url: https://api.coinbase.com
+paths:
+  /v2/prices/BTC-USD/spot:
+    get:
+      operationId: getBTCPrice
+      summary: Get current BTC-USD spot price
+      responses:
+        '200':
+          description: Successful response with BTC price
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      base:
+                        type: string
+                        example: BTC
+                      currency:
+                        type: string
+                        example: USD
+                      amount:
+                        type: string
+                        example: "68432.32"
