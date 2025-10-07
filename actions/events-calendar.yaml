@@ -1,0 +1,50 @@
+openapi: 3.0.1
+info:
+  title: Crypto Events Calendar API
+  version: "1.0.0"
+  description: Provides upcoming cryptocurrency-related events and conferences.
+servers:
+  - url: https://api.cryptoevents.com
+paths:
+  /v1/events:
+    get:
+      summary: List upcoming events
+      description: Retrieves upcoming cryptocurrency events filtered by optional parameters.
+      operationId: listCryptoEvents
+      parameters:
+        - in: query
+          name: category
+          schema:
+            type: string
+          description: Filter events by category (e.g., conference, hackathon).
+        - in: query
+          name: start_date
+          schema:
+            type: string
+            format: date
+          description: Return events occurring on or after this date.
+      responses:
+        '200':
+          description: Successful response containing an array of events.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  events:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        location:
+                          type: string
+                        start_date:
+                          type: string
+                          format: date
+                        end_date:
+                          type: string
+                          format: date
+                required:
+                  - events
