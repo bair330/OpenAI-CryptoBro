@@ -6,18 +6,11 @@ info:
 servers:
   - url: https://api.coinbase.com
 paths:
-  /v2/prices/{symbol}/spot:
+  /v2/prices/BTC-USD/spot:
     get:
       summary: Retrieve the current spot price for a trading pair
-      description: Returns the latest spot price for the specified cryptocurrency trading pair on Coinbase.
+      description: Returns the latest spot price for the BTC-USD trading pair on Coinbase.
       operationId: getSpotPrice
-      parameters:
-        - name: symbol
-          in: path
-          required: true
-          schema:
-            type: string
-          description: The trading pair symbol to fetch the spot price for (e.g., BTC-USD).
       responses:
         '200':
           description: Successful response containing the current spot price for the requested trading pair.
