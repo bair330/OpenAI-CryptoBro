@@ -30,3 +30,7 @@ paths:
                       amount:
                         type: string
                         example: "68432.32"
+'400':
+          description: Invalid symbol format
+        '404':
+          description: Symbol not found
